@@ -7,7 +7,6 @@ class Player(CircleShape):
     def __init__(self, x, y):
         super().__init__(x, y, PLAYER_RADIUS)
         self.rotation = 0
-        self.line_width = 2
         
     def triangle(self):
         forward = pygame.Vector2(0, 1).rotate(self.rotation)
@@ -18,7 +17,7 @@ class Player(CircleShape):
         return [a, b, c]
 
     def draw(self, screen):
-        pygame.draw.polygon(screen, (255,255,255), self.triangle(), self.line_width)
+        pygame.draw.polygon(screen, (255,255,255), self.triangle(), 2)
 
     def rotate(self, dt):
         self.rotation += PLAYER_TURN_SPEED * dt
